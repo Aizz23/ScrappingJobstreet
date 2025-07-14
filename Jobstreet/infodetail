@@ -1,0 +1,54 @@
+import pandas as pd
+from multiprocessing import Pool
+from tqdm import tqdm
+
+from main_scraper import scrape_job 
+import os
+
+# === Load file CSV ===
+# Pastikan menggunakan path absolut
+script_dir = os.path.dirname(os.path.abspath(__file__))
+csv_path = os.path.join(script_dir, "software_engineer.csv")
+df = pd.read_csv(csv_path)
+urls = df["Link"].tolist()
+
+# === TEST MODE: Ambil 1 link saja ===
+test_urls = urls[:1]  # Hanya ambil link pertama untuk test
+print(f"🧪 TEST MODE: Testing with {len(test_urls)} link")
+print(f"📋 Link to test: {test_urls[0]}")
+
+# === Fungsi pembungkus ===
+def scrape_with_index(args):
+    index, url = args
+    print(f"🔄 Scraping {index+1}: {url}")
+    result = scrape_job(url)
+    result["index"] = index + 1
+    return result
+
+# === Parallel scraping ===
+if __name__ == "__main__":
+    # Buat inputs dengan index untuk test URLs
+    inputs = list(enumerate(test_urls))
+    
+    print(f"🚀 Starting test scraping...")
+    
+    # Untuk test, jalankan sequential (tanpa multiprocessing)
+    results = []
+    for input_data in inputs:
+        result = scrape_with_index(input_data)
+        results.append(result)
+        
+        # Print hasil test
+        print("\n" + "="*50)
+        print("📋 TEST RESULT:")
+        print("="*50)
+        for key, value in result.items():
+            if value:  # Hanya tampilkan yang ada isinya
+                print(f"{key}: {value}")
+        print("="*50)
+
+    df_result = pd.DataFrame(results)
+    output_path = os.path.join(script_dir, "jobstreet_test_result.csv")
+    df_result.to_csv(output_path, index=False, encoding="utf-8-sig")
+    print(f"\n✅ Test selesai! Hasil disimpan di {output_path}")
+    print(f"📊 Total {len(results)} job berhasil di-scrape untuk test")
