@@ -1,4 +1,4 @@
-# ScrappingJobstreet 🚀
+# ScrappingJobstreet 
 
 A comprehensive web scraping project for extracting job listings from JobStreet Indonesia with advanced data processing capabilities.
 
@@ -151,9 +151,6 @@ This project is for educational purposes only. Please respect JobStreet's terms 
 - [ ] Advanced filtering options
 - [ ] API integration
 
-## 📞 Contact
-
-For questions or suggestions, please open an issue on GitHub.
 
 ---
 **⚡ Built with Python, Selenium, and lots of ☕**
