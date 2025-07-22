@@ -1,4 +1,4 @@
-# JobStreet Scraper Project 🚀
+# ScrappingJobstreet 🚀
 
 A comprehensive web scraping project for extracting job listings from JobStreet Indonesia with advanced data processing capabilities.
 
@@ -39,8 +39,8 @@ Jobstreet/
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/jobstreet-scraper.git
-cd jobstreet-scraper
+git clone https://github.com/Aizz23/ScrappingJobstreet.git
+cd ScrappingJobstreet
 ```
 
 2. Install required packages:
