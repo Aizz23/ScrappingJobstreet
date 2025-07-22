@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Data files (optional - uncomment if you don't want to upload CSV files)
+# *.csv
+# *.xlsx
+# *.json
+
+# Large data files
+ALL_SCRAPED_JOBSTREET_COMBINED.csv
+*_backup_*.csv
+*_combined*.csv
+*_merged*.csv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
